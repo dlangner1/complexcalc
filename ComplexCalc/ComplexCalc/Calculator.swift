@@ -30,8 +30,19 @@ class Calculator {
         return op(lhs, rhs)
     }
     
+    func add(_ vals: [Int]) -> Int {
+        return vals.reduce(0, +)
+    }
     
+    func multiply(_ vals: [Int]) -> Int {
+        return vals.reduce(0, *)
+    }
     
+    func count(_ vals: [Int]) -> Int {
+        return vals.count
+    }
     
-    
+    func avg(_ vals: [Int]) -> Int {
+        return vals.reduce(0, +) / vals.count
+    }
 }

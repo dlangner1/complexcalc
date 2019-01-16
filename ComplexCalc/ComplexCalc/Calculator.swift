@@ -26,7 +26,7 @@ class Calculator {
         return lhs / rhs
     }
     
-    func mathOp(lhs: Int, rhs: Int, op: (_: Int, _: Int) -> Int) -> Int {
+    func mathOp(lhs: Int, rhs: Int, op: (Int, Int) -> Int) -> Int {
         return op(lhs, rhs)
     }
     
@@ -35,7 +35,7 @@ class Calculator {
     }
     
     func multiply(_ vals: [Int]) -> Int {
-        return vals.reduce(0, *)
+        return vals.reduce(1, *)
     }
     
     func count(_ vals: [Int]) -> Int {
@@ -46,7 +46,23 @@ class Calculator {
         return vals.reduce(0, +) / vals.count
     }
     
-    func mathOp(args: [Int], beg: Int, op: (_ lhs: Int, _ rhs: Int) -> Int) -> Int {
-        return args.reduce(beg, op(lhs, rhs))
+    func mathOp(args: [Int], beg: Int, op: (Int, Int) -> Int) -> Int {
+        return args.reduce(beg, op)
+    }
+    
+    func add(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return (lhs.0 + rhs.0, lhs.1 + rhs.1)
+    }
+    
+    func subtract(lhs: (Int, Int), rhs: (Int, Int)) -> (Int, Int) {
+        return (lhs.0 - rhs.0, lhs.1 - rhs.1)
+    }
+    
+    func add(lhs: [String : Int], rhs: [String : Int]) -> [String : Int] {
+        return lhs.merging(rhs, uniquingKeysWith: +)
+    }
+    
+    func subtract(lhs: [String : Int], rhs: [String : Int]) -> [String : Int] {
+        return lhs.merging(rhs, uniquingKeysWith: -)
     }
 }

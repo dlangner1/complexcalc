@@ -25,4 +25,13 @@ class Calculator {
     func divide(lhs: Int, rhs: Int) -> Int {
         return lhs / rhs
     }
+    
+    func mathOp(lhs: Int, rhs: Int, op: (_ lhs : Int, _ : Int) -> Int) -> Int {
+        return op(lhs, rhs)
+    }
+    
+    
+    
+    
+    
 }

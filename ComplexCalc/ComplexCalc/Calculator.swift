@@ -26,7 +26,7 @@ class Calculator {
         return lhs / rhs
     }
     
-    func mathOp(lhs: Int, rhs: Int, op: (_ lhs : Int, _ : Int) -> Int) -> Int {
+    func mathOp(lhs: Int, rhs: Int, op: (_: Int, _: Int) -> Int) -> Int {
         return op(lhs, rhs)
     }
     
@@ -44,5 +44,9 @@ class Calculator {
     
     func avg(_ vals: [Int]) -> Int {
         return vals.reduce(0, +) / vals.count
+    }
+    
+    func mathOp(args: [Int], beg: Int, op: (_ lhs: Int, _ rhs: Int) -> Int) -> Int {
+        return args.reduce(beg, op(lhs, rhs))
     }
 }
